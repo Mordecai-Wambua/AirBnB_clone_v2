@@ -114,22 +114,14 @@ class HBNBCommand(cmd.Cmd):
         """ Overrides the emptyline method of CMD """
         pass
 
-    def do_create(self, args):
-        """ Create an object of any class"""
-        if not args:
-            print("** class name missing **")
-            return
-        try:
-            syntax = {}
-            tokens = shlex.split(args)
-
-            if tokens[0] not in self.classes:
-                print("** class doesn't exist **")
-                return
-            obj = eval(tokens[0])()
-            for i in tokens[1:]:
-                k = i.split("=")[0]
-                v = i.split("=")[1]
+    def implementer(self, args):
+        """Implement the required syntax for the key-value pairs."""
+        syntax = {}
+        for arg in args[1:]:
+            if "=" in arg:
+                division = arg.split('=', 1)
+                k = division[0]
+                v = division[1]
                 if v[0] == v[-1] == '"':
                     v = shlex.split(v)[0].replace('_', ' ')
                 else:
@@ -140,14 +132,37 @@ class HBNBCommand(cmd.Cmd):
                             v = float(v)
                         except ValueError:
                             continue
-                    setattr(obj, k, v)
-                    syntax[k] = v
-            obj.save()
-            print(obj.id)
+                syntax[k] = v
+        return syntax
+
+    def do_create(self, args):
+        """Performs object creation."""
+        if not args:
+            print("** class name missing **")
+            return
+
+        try:
+            args = shlex.split(args)
+            if args[0] in self.classes:
+                new_instance = eval(args[0])()
+                for i in args[1:]:
+                    try:
+                        key, value = i.split("=")
+                        if hasattr(new_instance, key):
+                            value = value.replace("_", " ")
+                            try:
+                                value = eval(value)
+                            except:
+                                pass
+                            setattr(new_instance, key, value)
+                    except ValueError:
+                        pass
+                new_instance.save()
+                print(new_instance.id)
+            else:
+                print("** class doesn't exist **")
         except Exception as e:
-            if obj:
-                obj.delete()
-            print("** Error: ", e)
+            print("** Error:", e)
 
     def help_create(self):
         """ Help information for the create method """
