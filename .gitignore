@@ -3,3 +3,5 @@ tests/test_models/test_engine/__pycache__/
 models/__pycache__/
 models/engine/__pycache__/
 models/engine/__pycache__/file_storage.cpython-38.pyc
+models/__pycache__/base_model.cpython-38.pyc
+models/__pycache__/__init__.cpython-38.pyc
