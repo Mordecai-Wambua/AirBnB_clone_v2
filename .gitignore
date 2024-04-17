@@ -1,7 +1,20 @@
-tests/test_models/__pycache__/
-tests/test_models/test_engine/__pycache__/
-models/__pycache__/
-models/engine/__pycache__/
+# Ignore Python bytecode files
+*.pyc
+
+# Ignore __pycache__ directories
+__pycache__/
+
+# Ignore specific __pycache__ files
 models/engine/__pycache__/file_storage.cpython-38.pyc
 models/__pycache__/base_model.cpython-38.pyc
 models/__pycache__/__init__.cpython-38.pyc
+models/engine/__pycache__/__init__.cpython-38.pyc
+models/__pycache__/user.cpython-38.pyc
+models/__pycache__/state.cpython-38.pyc
+models/__pycache__/place.cpython-38.pyc
+models/__pycache__/city.cpython-38.pyc
+models/__pycache__/amenity.cpython-38.pyc
+
+# Ignore test cache directories
+tests/test_models/__pycache__/
+tests/test_models/test_engine/__pycache__/
