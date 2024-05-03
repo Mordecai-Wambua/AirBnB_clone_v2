@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 """
     Creates and distributes an archive to the web servers
 """
@@ -6,7 +6,7 @@
 from fabric.api import env, local, put, run
 from datetime import datetime
 from os.path import exists, isdir
-env.hosts = ['3.229.113.167', '3.234.210.158']
+env.hosts = ['54.160.108.55', '100.26.164.108']
 env.user = 'ubuntu'
 env.identity = '~/.ssh/school'
 
