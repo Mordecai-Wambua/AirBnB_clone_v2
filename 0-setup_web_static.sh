@@ -21,7 +21,7 @@ new_config=\
         index index.html index.htm index.nginx-debian.html;
 
         server_name _;
-        add_header X-Served-By $hostname;
+        add_header X-Served-By \$hostname;
 
 	location /hbnb_static {
         alias /data/web_static/current;
@@ -33,7 +33,7 @@ new_config=\
             internal;
         }
 
-        if ($request_filename ~ redirect_me){
+        if (\$request_filename ~ redirect_me){
             rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
         }
 }
