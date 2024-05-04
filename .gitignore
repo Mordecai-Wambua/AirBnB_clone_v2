@@ -18,3 +18,5 @@ models/__pycache__/amenity.cpython-38.pyc
 # Ignore test cache directories
 tests/test_models/__pycache__/
 tests/test_models/test_engine/__pycache__/
+
+0-transfer_file
