@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
     Creates and distributes an archive to the web servers
 """
