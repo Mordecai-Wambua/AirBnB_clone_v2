@@ -23,7 +23,7 @@ new_config=\
         add_header X-Served-By \$hostname;
 
 	location /hbnb_static/ {
-        alias /data/web_static/current;
+        alias /data/web_static/current/;
         index index.html index.htm;
 	}
 
