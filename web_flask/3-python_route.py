@@ -28,7 +28,7 @@ def replace(text):
 @app.route("/python/<text>", strict_slashes=False)
 def defaults(text=None):
     if text is None:
-        text="is cool"
+        text = "is cool"
     """Display Python followed by text variable for route /python/<text>."""
     x = text.replace("_", " ")
     return f"Python {x}"
