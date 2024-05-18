@@ -9,23 +9,7 @@ from models.base_model import BaseModel, Base
 
 class City(BaseModel, Base):
     """ The city class, contains state ID and name """
-<<<<<<< HEAD
-    __tablename__ = 'cities'
-    name = Column(
-        String(128), nullable=False
-    ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
-    state_id = Column(
-        String(60), ForeignKey('states.id'), nullable=False
-    ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
-    places = relationship(
-        'Place',
-        cascade='all, delete, delete-orphan',
-        backref='cities'
-    ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else None
-=======
-
 
     __tablename__ = "cities"
     state_id = Column(String(60), ForeignKey("states.id"), nullable=False)
     name = Column(String(128), nullable=False)
->>>>>>> cad2f8870189f452856cbf2ffe1f5e3ee3cb985d
