@@ -3,7 +3,6 @@
 
 from flask import Flask, render_template
 from models import storage
-from models.state import State
 
 
 app = Flask(__name__)
@@ -12,12 +11,11 @@ app = Flask(__name__)
 @app.route("/states_list", strict_slashes=False)
 def states():
     """Display HTML page with State objects from DB."""
-    return render_template("7-states_list.html",
-            states=storage.all('State').values())
-
+    states = storage.all("State").values()
+    return render_template("7-states_list.html", states=states)
 
 @app.teardown_appcontext
-def teardown(self):
+def teardown(exc):
     """Remove current SQLAlchemy Session."""
     storage.close()
 
