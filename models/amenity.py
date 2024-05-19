@@ -5,7 +5,6 @@ from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 
-
 class Amenity(BaseModel, Base):
     """Define the amenities class."""
 
